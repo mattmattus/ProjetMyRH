@@ -26,8 +26,8 @@ public class DepartementJPATest {
 		trx.begin();
 		
 		Departement empEntity= new Departement();
-		empEntity.setCode("50");
-		empEntity.setName("test");
+		empEntity.setCode("49");
+		empEntity.setName("MAINE ET LOIRE");
 		empEntity.setDescription("C'est cool ici");
 		
 		em.persist(empEntity);

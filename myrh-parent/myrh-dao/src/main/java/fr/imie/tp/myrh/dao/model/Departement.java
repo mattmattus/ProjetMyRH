@@ -29,7 +29,12 @@ public class Departement implements Serializable{
 	@Column(name="NAME")
 	private String Name;
 	
+	@Column(name="DESCRIPTION")
+	private String Description;
 	
+	@OneToMany(mappedBy="departement")
+	private List<Employe> employes;
+
 	
 	public long getId() {
 		return id;
@@ -62,15 +67,6 @@ public class Departement implements Serializable{
 	public void setDescription(String description) {
 		Description = description;
 	}
-
-	
-	@Column(name="DESCRIPTION")
-	private String Description;
-	
-	@OneToMany(mappedBy="departement")
-	private List<Employe> employes;
-
-
 
 	public List<Employe> getEmployes() {
 		return employes;

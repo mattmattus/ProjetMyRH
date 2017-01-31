@@ -41,11 +41,11 @@ public class EmployeJPATest {
 			e.printStackTrace();
 		}
 		
-		Departement depEntity= new Departement();
-		depEntity.setCode("50");
-		depEntity.setName("test");
-		depEntity.setDescription("C'est cool ici");
-		em.persist(depEntity);
+//		Departement depEntity= new Departement();
+//		depEntity.setCode("50");
+//		depEntity.setName("test");
+//		depEntity.setDescription("C'est cool ici");
+//		em.persist(depEntity);
 		
 		Departement d1 = em.find(Departement.class, 1l);
 		empEntity.setDepartement(d1);
