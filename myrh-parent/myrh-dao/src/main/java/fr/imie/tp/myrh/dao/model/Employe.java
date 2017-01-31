@@ -1,21 +1,29 @@
 package fr.imie.tp.myrh.dao.model;
 
 import java.io.Serializable;
+<<<<<<< HEAD
 import java.util.Date;
+=======
+import java.sql.Date;
+>>>>>>> origin/master
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+<<<<<<< HEAD
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+=======
+>>>>>>> origin/master
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="T_EMPLOYE")
+<<<<<<< HEAD
 
 @NamedQueries({
 @NamedQuery(name="Employe.findAll", query="SELECT e FROM Employe e"),
@@ -31,6 +39,14 @@ public class Employe implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID")
 	private long id;
+=======
+public class Employe implements Serializable {
+
+	@Id
+	@Column(name="ID")
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
+>>>>>>> origin/master
 	
 	@Column(name="FNAME")
 	private String nom;
@@ -55,6 +71,7 @@ public class Employe implements Serializable{
 	@Temporal(TemporalType.DATE)
 	@Column(name="DEPARTURE_DATE")
 	private Date dateFinEmbauche;
+<<<<<<< HEAD
 
 	
 	
@@ -63,6 +80,16 @@ public class Employe implements Serializable{
 	}
 
 	public void setId(long id) {
+=======
+	
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+>>>>>>> origin/master
 		this.id = id;
 	}
 
@@ -121,6 +148,11 @@ public class Employe implements Serializable{
 	public void setDateFinEmbauche(Date dateFinEmbauche) {
 		this.dateFinEmbauche = dateFinEmbauche;
 	}
+<<<<<<< HEAD
 	
 
+=======
+
+	
+>>>>>>> origin/master
 }
