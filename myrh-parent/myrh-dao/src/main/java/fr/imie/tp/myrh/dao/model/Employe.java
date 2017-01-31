@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -63,11 +64,22 @@ public class Employe implements Serializable {
 	private Date dateFinEmbauche;
 	
 	@ManyToOne
+	private DemandeConge demandeConge;
+	
+	public DemandeConge getDemandeConge() {
+		return demandeConge;
+	}
+
+	public void setDemandeConge(DemandeConge demandeConge) {
+		this.demandeConge = demandeConge;
+	}
+	
+	@OneToOne
+	private HistoriqueDemande historiqueDemande;
+
+	@ManyToOne
 	private Departement departement;
-	
 
-
-	
 	public List<Journee> getJournees() {
 		return journees;
 	}

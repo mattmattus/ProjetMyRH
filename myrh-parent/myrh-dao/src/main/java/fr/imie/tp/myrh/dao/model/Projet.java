@@ -44,8 +44,6 @@ public class Projet implements Serializable {
 	@OneToMany(mappedBy="projet")
 	private List<Journee> journees;
 
-
-
 	public List<Journee> getJournees() {
 		return journees;
 	}
