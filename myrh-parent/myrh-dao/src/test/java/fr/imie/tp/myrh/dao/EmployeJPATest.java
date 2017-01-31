@@ -62,7 +62,7 @@ public class EmployeJPATest {
 		
 		
 		//Requete3: Liste des employes
-		System.out.println("\nRequete2: LISTE DES Employés");
+		System.out.println("\nRequete3: LISTE DES Employés");
 		
 		Query query3 = em.createNamedQuery("Employe.findAll", Employe.class);
 		List<Employe> emp4 = query3.getResultList();
@@ -72,8 +72,8 @@ public class EmployeJPATest {
 		
 		
 		
-		//Requete3: Employe dont le nom est XXX
-		System.out.println("\nRequete2: Employe dont le nom est XXX");
+		//Requete4: Employe dont le nom est XXX
+		System.out.println("\nRequete4: Employe dont le nom est XXX");
 		
 		TypedQuery<Employe> query4 = em.createNamedQuery("Employe.findByNom", Employe.class);
 		query4.setParameter("nomVar", "Griezmann");
@@ -82,7 +82,24 @@ public class EmployeJPATest {
 		
 		
 		
-		//Requete3: Employe dont le salaire est sup a 40 0000€
+		
+		//Requete5: Employe dont le salaire est sup a 40 0000€
+				System.out.println("\nRequete5: Employe dont le salaire est sup a 40 000€");
+				
+				Query query5 = em.createNamedQuery("Employe.findBySal", Employe.class);
+				query5.setParameter("salVar", 40000d);
+				List<Employe> emp6 = query5.getResultList();
+				for(Employe employe : emp6){
+					System.out.println("id : "+ employe.getId() +"nom : "+ employe.getNom() +" prenom : "+employe.getPrenom());
+				}
+				
+				
+//				//2 affiche la date de depart
+//				TypedQuery<Employe> query6 = em.createNamedQuery("Employe.UpdateDFE", Employe.class);
+//				query6.setParameter("dateFinEmb", 31/01/2017, "idVar", 1l);
+//				Employe emp7 = query6.getSingleResult();
+//				System.out.println(emp7.getNom());
+//				
 		
 	}
 

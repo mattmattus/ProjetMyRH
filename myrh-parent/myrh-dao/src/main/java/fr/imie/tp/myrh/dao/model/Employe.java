@@ -20,7 +20,9 @@ import javax.persistence.TemporalType;
 @NamedQueries({
 @NamedQuery(name="Employe.findAll", query="SELECT e FROM Employe e"),
 @NamedQuery(name="Employe.findByID", query="SELECT e FROM Employe e WHERE e.id= :idVar"),
-@NamedQuery(name="Employe.findByNom", query="SELECT e FROM Employe e WHERE e.nom= :nomVar")
+@NamedQuery(name="Employe.findByNom", query="SELECT e FROM Employe e WHERE e.nom= :nomVar"),
+@NamedQuery(name="Employe.findBySal", query="SELECT e FROM Employe e WHERE e.salaire > :salVar"),
+@NamedQuery(name="Employe.UpdateDFE", query="UPDATE e.dateFinEmbauche :dateFinEmb FROM Employe WHERE e.id= idVar")
 })
 public class Employe implements Serializable{
 	
