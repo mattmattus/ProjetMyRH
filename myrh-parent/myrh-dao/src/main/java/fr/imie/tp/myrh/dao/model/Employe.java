@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -23,7 +24,7 @@ import javax.persistence.TemporalType;
 @NamedQuery(name="Employe.findByID", query="SELECT e FROM Employe e WHERE e.id= :idVar"),
 @NamedQuery(name="Employe.findByNom", query="SELECT e FROM Employe e WHERE e.nom= :nomVar"),
 @NamedQuery(name="Employe.findBySal", query="SELECT e FROM Employe e WHERE e.salaire > :salVar"),
-@NamedQuery(name="Employe.UpdateDFE", query="UPDATE e.dateFinEmbauche :dateFinEmb FROM Employe WHERE e.id= idVar")
+//@NamedQuery(name="Employe.UpdateDFE", query="UPDATE e.dateFinEmbauche :dateFinEmb FROM Employe WHERE e.id= idVar")
 })
 
 
@@ -58,8 +59,19 @@ public class Employe implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@Column(name="DEPARTURE_DATE")
 	private Date dateFinEmbauche;
+	
+	@ManyToOne
+	private Departement departement;
 
 	
+	public Departement getDepartement() {
+		return departement;
+	}
+
+	public void setDepartement(Departement departement) {
+		this.departement = departement;
+	}
+
 	public int getId() {
 		return id;
 	}

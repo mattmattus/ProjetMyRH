@@ -11,6 +11,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
+import fr.imie.tp.myrh.dao.model.Departement;
 import fr.imie.tp.myrh.dao.model.Employe;
 
 public class EmployeJPATest {
@@ -24,38 +25,46 @@ public class EmployeJPATest {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("myRhPersistenceUnit");
 		EntityManager em = emf.createEntityManager();
 		
-//		//Requete1: Insetion d'un employe
-//		System.out.println("\nRequete1: CREATION D'UN EMPLOYE");
-//		EntityTransaction trx= em.getTransaction();
-//		trx.begin();
-//		
-//		Employe empEntity= new Employe();
-//		empEntity.setPrenom("Antoine");
-//		empEntity.setNom("Griezmann");
-//		empEntity.setSecuriteSoc("1234567890");
-//		try {
-//			empEntity.setDatenaiss(sdf.parse("21/03/1991"));
-//		} catch (ParseException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
-//		em.persist(empEntity);
-//		System.out.println("Utilisateur enregistré avec l'id "+empEntity.getId());
-//		trx.commit();
+		//Requete1: Insetion d'un employe
+		System.out.println("\nRequete1: CREATION D'UN EMPLOYE");
+		EntityTransaction trx= em.getTransaction();
+		trx.begin();
+		
+		Employe empEntity= new Employe();
+		empEntity.setPrenom("Antoine");
+		empEntity.setNom("Griezmann");
+		empEntity.setSecuriteSoc("1234567890");
+		try {
+			empEntity.setDatenaiss(sdf.parse("21/03/1991"));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Departement depEntity= new Departement();
+		depEntity.setCode("50");
+		depEntity.setName("test");
+		depEntity.setDescription("C'est cool ici");
+		em.persist(depEntity);
+		
+		Departement d1 = em.find(Departement.class, 1l);
+		empEntity.setDepartement(d1);
+		em.persist(empEntity);
+		System.out.println("Utilisateur enregistré avec l'id "+empEntity.getId());
+		trx.commit();
 		
 		
 		//Requete2: L'employe avec l'id 1
 		System.out.println("\nRequete2: Employe avec l'id 1");
 		
 		//1 affiche le prenom
-		Employe emp2= em.find(Employe.class, 1l);		
+		Employe emp2= em.find(Employe.class, 1);		
 		System.out.println(emp2.getPrenom());
 		
 		
 		//2 affiche le nom
 		TypedQuery<Employe> query2 = em.createNamedQuery("Employe.findByID", Employe.class);
-		query2.setParameter("idVar", 1l);
+		query2.setParameter("idVar", 1);
 		Employe emp3 = query2.getSingleResult();
 		System.out.println(emp3.getNom());
 		
