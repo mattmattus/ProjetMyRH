@@ -8,16 +8,24 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="T_DEPARTEMENT")
+@NamedQueries({
+@NamedQuery(name="Departement.findAll", query="SELECT d FROM Departement d")
+})
 public class Departement implements Serializable{
 	
 	
+	@Override
+	public String toString() {
+		return Name;
+	}
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID")

@@ -27,11 +27,24 @@ import javax.persistence.TemporalType;
 @NamedQuery(name="Employe.findByID", query="SELECT e FROM Employe e WHERE e.id= :idVar"),
 @NamedQuery(name="Employe.findByNom", query="SELECT e FROM Employe e WHERE e.nom= :nomVar"),
 @NamedQuery(name="Employe.findBySal", query="SELECT e FROM Employe e WHERE e.salaire > :salVar"),
+//@NamedQuery(name="Employe.add", query="INSERT INTO Employe(ARRIVAL_DATE, DEPARTURE_DATE, BIRTHDATE, FNAME, LNAME, SALARY, NSS) VALUES(:dateArrVar, :DateDepVar, :datenaissVar, :prenomVar, :nomVar, :salaireVar, :securitesocVar)")
 //@NamedQuery(name="Employe.UpdateDFE", query="UPDATE e.dateFinEmbauche :dateFinEmb FROM Employe WHERE e.id= idVar")
 })
 
 
 public class Employe implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
+
+	@Override
+	public String toString() {
+		return nom + " " + prenom;
+	}
 
 	@Id
 	@Column(name="ID")

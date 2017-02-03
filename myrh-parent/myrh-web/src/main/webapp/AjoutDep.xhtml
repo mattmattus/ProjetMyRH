@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+
+ 
+	<h1>Ajouter un département : </h1>
+
+  <h:form>
+
+		Code : <p:inputText name="#{departementForm.code}" value="#{departementForm.code}"/> <br></br>
+		Nom du département : <p:inputText name="#{departementForm.name}" value="#{departementForm.name}"></p:inputText> <br></br>	
+		Description : <p:inputText name="#{departementForm.description}" value="#{departementForm.description}"/> <br></br>
+  	  <p:commandButton value="Enregistrer" id="addDep" actionListener="#{departementViewController.addDepartement}" />
+		
+	</h:form>
+	
+</h:body>
+</html>

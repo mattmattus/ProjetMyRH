@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+
+ 
+	<h1>Ajouter un employé : </h1>
+
+  <h:form>
+
+		Nom : <p:inputText name="#{employeForm.nom}" value="#{employeForm.nom}"/> <br></br>
+		Prénom : <p:inputText name="#{employeForm.prenom}" value="#{employeForm.prenom}"/> <br></br>
+		Date de naissance : <p:inputText type="date"  name="#{employeForm.datenaiss}" value="#{employeForm.datenaiss}"></p:inputText> <br></br>
+		Securité social : <p:inputText name="#{employeForm.securiteSoc}" value="#{employeForm.securiteSoc}"></p:inputText> <br></br>
+		Salaire : <p:inputText name="#{employeForm.salaire}" value="#{employeForm.salaire}"></p:inputText> <br></br>
+		Date début contrat : <p:inputText type="date" name="#{employeForm.dateEmbauche}" value="#{employeForm.dateEmbauche}"></p:inputText> <br></br>
+		date fin contrat : <p:inputText type="date" name="#{employeForm.dateFinEmbauche}" value="#{employeForm.dateFinEmbauche}" ></p:inputText> <br></br>		
+  	  <p:commandButton value="Enregistrer" id="addEmploye" actionListener="#{employeViewController.addEmploye}" />
+		
+	</h:form>
+	
+</h:body>
+</html>

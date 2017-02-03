@@ -6,5 +6,6 @@ import fr.imie.tp.myrh.dao.model.Employe;
 public interface IEmployeDAO{
 	
 		public Collection<Employe> getAllEmploye();
+		public void addEmploye(Employe employe);
 
 }

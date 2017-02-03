@@ -1,2 +1,4 @@
 *.MF
 myrh-parent/myrh-core/target/classes/META-INF/MANIFEST.MF
+myrh-parent/myrh-core/target/classes/META-INF/maven/fr.imie.tp/myrh-core/pom.properties
+myrh-parent/myrh-dao/.settings/org.eclipse.jdt.core.prefs

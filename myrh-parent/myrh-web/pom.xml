@@ -47,6 +47,11 @@
                         <artifactId>jstl</artifactId>
                         <version>1.2</version>
                 </dependency>
+                <dependency>
+                        <groupId>fr.imie.tp</groupId>
+                        <artifactId>myrh-dao</artifactId>
+                        <version>0.0.1-SNAPSHOT</version>
+                </dependency>
                 
                 
 
@@ -55,6 +60,6 @@
   
   
   <build>
-    <finalName>myrh-web-demo</finalName>
+    <finalName>myrh-web</finalName>
   </build>
 </project>
