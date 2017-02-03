@@ -7,5 +7,6 @@ public interface IEmployeDAO{
 	
 		public Collection<Employe> getAllEmploye();
 		public void addEmploye(Employe employe);
+		public Collection<Employe> getEmployeByDep();
 
 }

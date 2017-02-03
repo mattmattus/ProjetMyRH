@@ -34,6 +34,13 @@ public class EmployeDAOImpl implements IEmployeDAO{
 		transaction.commit();
 	}
 	
+	public Collection<Employe> getEmployeByDep(){
+		TypedQuery<Employe> query = em.createNamedQuery("Employe.findByDep", Employe.class);
+		query.setParameter("idDep", 1L);
+		Collection<Employe> emps = query.getResultList();
+		return emps;
+	}
+	
 	public EntityManager getEm(){
 		return em;
 	}

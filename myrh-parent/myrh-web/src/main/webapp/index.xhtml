@@ -11,29 +11,88 @@
 </h:head>
 <h:body>
 
+
+	<!-- 	<h1>Hello World PrimeFaces</h1> -->
+
+	<h:form>
+		<table>
+			<tr>
+				<th>Test</th>
+			</tr>
+		</table>
+
+		<p:dataTable var="emp" value="#{employeViewController.employeItems}">
+			<p:column headerText="Id">
+				<h:outputText value="#{emp.id}" />
+			</p:column>
+
+			<p:column headerText="Prénom">
+				<h:outputText value="#{emp.nom}" />
+			</p:column>
+
+			<p:column headerText="Nom">
+				<h:outputText value="#{emp.prenom}" />
+			</p:column>
+
+			<p:column headerText="Birthdate">
+				<h:outputText value="#{emp.datenaiss}" />
+			</p:column>
+
+			<p:column headerText="Securite Sociale">
+				<h:outputText value="#{emp.securiteSoc}" />
+			</p:column>
+
+			<p:column headerText="Salaire">
+				<h:outputText value="#{emp.salaire}" />
+			</p:column>
+
+		</p:dataTable>
+
+		<p:dataTable var="emp1"
+			value="#{departementViewController.departementItems}">
+			<p:column headerText="Id">
+				<h:outputText value="#{emp1.id}" />
+			</p:column>
+
+			<p:column headerText="Code">
+				<h:outputText value="#{emp1.code}" />
+			</p:column>
+
+			<p:column headerText="Name">
+				<h:outputText value="#{emp1.name}" />
+			</p:column>
+
+		</p:dataTable>
+
+		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5"
+			columnClasses="label, value">
+
+			<p:outputLabel for="advanced" value="Advanced:" />
+			<p:selectOneListbox id="advanced" value="#{departementViewController.departementItems}"
+			 var="t" filter="true">
+				<f:selectItems value="#{departementViewController.departementItems}" var="dep"
+					itemLabel="#{dep.name}" itemValue="#{dep}" />
+
+				<p:column>
+					<h:outputText styleClass="ui-theme ui-theme-#{t.name}" />
+				</p:column>
+
+				<p:column>
+					<h:outputText value="#{t.name}" />
+				</p:column>
+			</p:selectOneListbox>
+		</h:panelGrid>
+		
+		<p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-check" />
  
-	<h1>Hello World PrimeFaces</h1>
-
-  <h:form>
-
-			
-			<p:dataTable var="emp" value="#{employeViewController.employeItems}">
-				<p:column headerText="Id">
-					<h:outputText value="#{emp.id}" />
-				</p:column>
-				
-				<p:column headerText="Prénom">
-					<h:outputText value="#{emp.prenom}" />
-				</p:column>
-								
-				<p:column headerText="Nom">
-					<h:outputText value="#{emp.nom}" />
-				</p:column>
-								
-				<p:column headerText="Birthdate">
-					<h:outputText value="#{emp.datenaiss}" />
-				</p:column>
-			</p:dataTable>
+    <p:dialog header="Liste des employé du departement" modal="true" showEffect="fade" widgetVar="dlg" resizable="false">
+        <p:panelGrid columns="2" id="display" columnClasses="label,output">
+ 
+            <h:outputText value="Employe" />
+            <h:outputText value="#{employeViewController.employeByDep}" />
+        </p:panelGrid>
+    </p:dialog>
+    
 	</h:form>
 	<a href="AjoutEmploye.xhtml">Ajouter Employé</a> <br></br>
 	<a href="AjoutDep.xhtml">Ajouter un departement</a> <br></br>

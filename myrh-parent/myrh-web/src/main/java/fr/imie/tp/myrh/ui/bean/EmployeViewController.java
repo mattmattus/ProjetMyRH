@@ -2,7 +2,6 @@ package fr.imie.tp.myrh.ui.bean;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -10,9 +9,12 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
-import fr.imie.tp.myrh.dao.model.Employe;
+import fr.imie.tp.myrh.dao.ifc.IDepartementDAO;
 import fr.imie.tp.myrh.dao.ifc.IEmployeDAO;
+import fr.imie.tp.myrh.dao.imp.DepartementDAOImpl;
 import fr.imie.tp.myrh.dao.imp.EmployeDAOImpl;
+import fr.imie.tp.myrh.dao.model.Departement;
+import fr.imie.tp.myrh.dao.model.Employe;
 
 @SessionScoped
 @ManagedBean(name="employeViewController")
@@ -22,12 +24,31 @@ public class EmployeViewController {
 	private List<Employe> employeItems;
 	private final IEmployeDAO _employeDaoService = new EmployeDAOImpl();
 
+	private List<Departement> departementItems;
+	private List<Employe> employeByDep;
+	
+	private final IDepartementDAO _departementDaoService= new DepartementDAOImpl();
+	
 	@ManagedProperty("#{employeForm}")
 	private EmployeForm createEmployeData;
+	
+	public List<Employe> getEmployeByDep() {
+		return employeByDep;
+	}
+	
+	public void setEmployeByDep(List<Employe> employeByDep){
+		this.employeByDep = employeByDep;
+	}
+	
+	public List<Departement> getDepartementItems(){
+		return  departementItems;
+	}
 	
 	@PostConstruct
 	public void init(){
 		employeItems =(List<Employe>) _employeDaoService.getAllEmploye();
+		departementItems = (List<Departement>) _departementDaoService.getAllDepartement();
+		employeByDep = (List<Employe>) _employeDaoService.getEmployeByDep();
 	}
 	
 	
